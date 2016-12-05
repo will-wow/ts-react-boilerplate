@@ -12,14 +12,14 @@ module.exports = {
     'react-hot-loader/patch',
     path.join(__dirname, '../src/index.tsx')
   ],
+  output: {
+    path: path.join(__dirname, '../dist/'),
+    filename: '[name].js',
+    publicPath: '/'
+  },
   resolve: {
     // Add .ts
     extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
-  },
-  output: {
-    path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
-    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({

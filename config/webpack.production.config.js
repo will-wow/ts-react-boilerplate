@@ -22,11 +22,6 @@ module.exports = {
     extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
   },
   plugins: [
-    // webpack gives your modules and chunks ids to identify them. Webpack can vary the
-    // distribution of the ids to get the smallest id length for often used ids with
-    // this plugin
-    new webpack.optimize.OccurenceOrderPlugin(),
-
     // handles creating an index.html file and injecting assets. necessary because assets
     // change name because the hash part changes. We want hash name changes to bust cache
     // on client browsers.
@@ -35,6 +30,10 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
+    // webpack gives your modules and chunks ids to identify them. Webpack can vary the
+    // distribution of the ids to get the smallest id length for often used ids with
+    // this plugin
+    new webpack.optimize.OccurenceOrderPlugin(),
     // extracts the css from the js files and puts them on a separate .css file. this is for
     // performance and is used in prod environments. Styles load faster on their own .css
     // file as they dont have to wait for the JS to load.
