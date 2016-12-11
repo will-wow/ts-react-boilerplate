@@ -1,12 +1,15 @@
-.filterable-table {
-	padding: 20px;
-	background-color: beige;
-}
+// Do this first, since it includes foundation overrides.
+@import './variables/index';
+// Foundation
+@import 'foundation-sites/scss/foundation';
+@include foundation-everything;
 
-footer {
-	margin-top: 20px;
+@import './components/index';
 
-	a {
-		padding: 5px 10px 5px 0;
-	}
+html {
+  background-image: url(../img/bosphorus.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top right;
 }

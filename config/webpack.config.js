@@ -57,14 +57,24 @@ module.exports = {
         loader: 'json'
       }, {
         test: /\.scss$/,
+        exclude: [/node_modules/], // sassLoader will include node_modules explicitly.
         loader: 'style!css!sass?modules&localIdentName=[name]---[local]---[hash:base64:5]'
       }, {
         test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
         loader: 'url?limit=10000&mimetype=application/font-woff'
       }, {
+        test: /\.(png|jpg)(\?[a-z0-9#=&.]+)?$/,
+        loader: 'url?limit=10000&name=img-[hash:6].[ext]'
+      }, {
+        test: /favicon\.ico$/,
+        loader: 'url?limit=1&name=[name].[ext]'
+      }, {
         test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
         loader: 'file'
       }
     ]
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "../node_modules")]
   }
 };

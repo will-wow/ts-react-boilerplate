@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router';
 
 const App = ({ children }) =>
-  <div>
+  <div className="row">
     <h1>Filter table</h1>
     {children}
     <footer>
